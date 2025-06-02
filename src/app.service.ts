@@ -9,4 +9,8 @@ export class AppService {
   getHelloAleman(): string {
     return 'Hallo Welt';
   }
+
+  getHelloFrances(): string {
+    return 'Bounjour le monde';
+  }
 }
