@@ -10,7 +10,5 @@ export class AppService {
     return 'Hallo Welt';
   }
 
-  getHelloFrances(): string {
-    return 'Bounjour tout le monde';
-  }
+  getHelloFrances(
 }
