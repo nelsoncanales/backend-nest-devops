@@ -10,11 +10,7 @@ export class AppService {
     return 'Hallo Welt';
   }
 
-<<<<<<< HEAD
-  getHelloFrances(
-=======
   getHelloFrances(): string {
     return 'mi mensaje de pruebas';
   }
->>>>>>> parent of f213943 (resolucion de conflictos para cambio en endpoint en frances)
 }
