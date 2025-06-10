@@ -34,7 +34,7 @@ describe('AppController (e2e)', () => {
       });
   });
 
-    it('/operaciones (GET)', () => {
+  it('/operaciones (GET)', () => {
     return request(app.getHttpServer())
       .get('/operaciones')
       .query({ operacion: 'suma', a: 100, b: 100 })
