@@ -47,9 +47,9 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("${registry}", registryCredentials ){
-                        sh "docker build -t backend-nest-ncanales ."
-                        sh "docker tag backend-nest-ncanales ${dockerImagePrefix}/backend-nest-ncanales"
-                        sh "docker push ${dockerImagePrefix}/backend-nest-ncanales"
+                        sh "docker build -t backend-ncanales ."
+                        sh "docker tag backend-ncanales ${dockerImagePrefix}/backend-ncanales"
+                        sh "docker push ${dockerImagePrefix}/backend-ncanales"
                     }
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
             }
             steps {
                 withKubeConfig([credentialsId: 'gcp-kubeconfignco']){
-                    sh 'kubectl -n lab-ncanales set image deployments/backend-nest-ncanales backend-nest-ncanales=us-west1-docker.pkg.dev/lab-agibiz/docker-repository/backend-nest-ncanales'
+                    sh 'kubectl -n lab-ncanales set image deployments/backend-ncanales backend-ncanales=us-west1-docker.pkg.dev/lab-agibiz/docker-repository/backend-ncanales'
                 }
             }
  }
