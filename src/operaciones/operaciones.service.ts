@@ -6,6 +6,26 @@ export class OperacionesService {
     if (operacion === 'suma') {
       return this.#suma(a, b);
     }
+
+    if (operacion === 'resta') {
+      return this.#resta(a, b);
+    }
+
+    if (operacion === 'multiplicacion') {
+      return this.#multiplicacion(a, b);
+    }
+
+    if (operacion === 'division') {
+      return this.#division(a, b);
+    }
+
+    if (operacion === 'potencia') {
+      return this.#potencia(a, b);
+    }
+
+        if (operacion === 'factorial') {
+      return this.#factorial(a);
+    }
   }
 
   #suma(a: number, b: number) {
@@ -17,5 +37,60 @@ export class OperacionesService {
       return NaN;
     }
     return a + b;
+  }
+
+  #resta(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+      throw new Error('No se puede llamar con numeros indefinidos.');
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      return NaN;
+    }
+    return a - b;
+  }
+
+  #multiplicacion(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+      throw new Error('No se puede llamar con numeros indefinidos.');
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      return NaN;
+    }
+    return a * b;
+  }
+  
+  #division(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+      throw new Error('No se puede llamar con numeros indefinidos.');
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      return NaN;
+    }
+    return a / b;
+  }
+
+  #potencia(a: number, b: number) {
+    if (a === undefined || b === undefined) {
+      throw new Error('No se puede llamar con numeros indefinidos.');
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      return NaN;
+    }
+    return a ^ b;
+  }
+
+  #factorial(a: number) {
+    if (a === undefined) {
+      throw new Error('No se puede llamar con numeros indefinidos.');
+    }
+
+    if (typeof a !== 'number') {
+      return NaN;
+    }
+    return a!;
   }
 }
