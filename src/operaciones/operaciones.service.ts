@@ -80,7 +80,7 @@ export class OperacionesService {
     if (typeof a !== 'number' || typeof b !== 'number') {
       return NaN;
     }
-    return a ^ b;
+    return  a**b;
   }
 
   #factorial(a: number) {
@@ -88,9 +88,22 @@ export class OperacionesService {
       throw new Error('No se puede llamar con numeros indefinidos.');
     }
 
+    if (a < 0) {
+      throw new Error('No se puedecalcular factorial.');
+    }
+
     if (typeof a !== 'number') {
       return NaN;
     }
-    return a!;
+   
+
+    if (a === 0 || a === 1) return 1;
+
+    let resultado = 1;
+    for (let i = 2; i <= a; i++) {
+      resultado *= i;
+    }
+    return resultado;
+
   }
 }

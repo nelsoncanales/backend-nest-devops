@@ -11,8 +11,15 @@ export class OperacionesController {
     @Res() res: Response,
     @Query('operacion') operacion: string,
     @Query('a') a: number,
-    @Query('b') b: number,
+    @Query('b') b: number
   ) {
+    console.log('operacion');
+    console.log(operacion);
+    console.log('a');
+    console.log(a);
+    console.log('b');
+    console.log(b);
+
     const calculo = this.operService.operar(operacion, +a, +b);
 
     if (calculo) {
