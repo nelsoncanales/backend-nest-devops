@@ -5,7 +5,7 @@ pipeline {
         NPM_CONFIG_CACHE= "${WORKSPACE}/.npm"
         dockerImagePrefix = "us-west1-docker.pkg.dev/lab-agibiz/docker-repository"
         registry = "https://us-west1-docker.pkg.dev"
-        registryCredentials = "gcp-registry"
+        registryCredentials = 'gcp-registrynco'
     }
     stages{
         stage ("saludo a usuario") {
@@ -54,5 +54,18 @@ pipeline {
                 }
             }
         }
+ stage ("actualizacion de kubernetes"){
+            agent {
+                docker {
+                    image 'alpine/k8s:1.30.2'
+                    reuseNode true
+                }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'gcp-kubeconfig']){
+                    sh 'kubectl -n lab-ncanales set image deployments/backend-nest-ncanales backend-nest-ncanales=us-west1-docker.pkg.dev/lab-agibiz/docker-repository/backend-nest-ncanales'
+                }
+            }
+ }
     }
 }
